@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form HTML</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#TitleGioiTinh{
+			font-weight: bold;
+			color: red;
+		}
+		.Title{
+			font-weight: bold;
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<b>Form nhập dữ liệu</b><br>
+	<form name="myForm"  action="http://vnexpress.net">
+		<table>
+			<colgroup>
+				<col width="150px">
+				<col width="200px"> 
+			</colgroup>
+			<tr>
+				<td class="Title">Tiêu đề</td>
+				<td><input type="text" required name="TieuDe"></td>
+			</tr>
+			<tr>
+				<td class="Title">Nội dung phản hồi</td>
+				<td><textarea name="Comments"></textarea></td>
+			</tr>
+			<tr>
+				<td class="Title" id="TitleGioiTinh">Giới tính</td>
+				<td>
+					<input type="radio"  name="gender" value="Male"> Male <br>
+					<input type="radio" checked="" name="gender" value="Female">Female <br>
+					<input type="radio" name="gender" value="Unknown">Unknown
+				</td>
+			</tr>
+			<tr>
+				<td class="Title" >Chuyên Mục phản hồi</td>
+				<td>
+					<select name="type" >
+						<option value="Thể thao" selected="">Thể thao</option>
+						<option selected value="Gia Đình">Gia Đình</option>
+						<option value="Thế giới">Thế giới</option>
+						<option value="Văn hóa">Văn hóa</option>
+						<option value="Khoa học">Khoa học</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="Title">Sở thích</td>
+				<form>
+					<td>
+						<fieldset>
+							<legend>Chọn Nhiều Sở thích</legend>
+							<input type="checkbox" name="favorite" value="nghe nhạc"> nghe nhạc <br>
+							<input type="checkbox" checked="" name="favorite" value="ca hát"> ca hát <br>
+							<input type="checkbox" name="favorite" value="Nhảy múa"> nhảy múa
+						</fieldset>
+					</td>
+				</form>
+			</tr>
+
+			<tr>
+				<td class="Title">Email</td>
+				<td><input type="text" required name="Email"></td>
+			</tr>
+			<tr>
+				<td class="Title" >Họ Và Tên</td>
+				<td><input type="text" required name="Họ Và Tên" value="Trần Vĩnh Thiện Phúc"></td>
+			</tr>
+
+			<tr>
+				<td>								
+				</td>
+				<td class="Title">
+					<input type="reset" name="resetBtn" value="Reset">	
+					<input type="submit" name="submietBtn" alt="Submit">
+				</td>
+			</tr>			
+		</table>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/knW7-x7Y7RE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</form>
+</body>
+</html>

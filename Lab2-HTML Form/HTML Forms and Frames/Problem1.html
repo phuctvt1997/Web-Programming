@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Problem1</title>
+	<style type="text/css" >
+		button{
+			text-align: center;
+		}
+		#title{
+			text-align: right;
+		}
+		form{
+			position: relative;
+			width: 900px;
+			margin: 0px auto;
+			padding: 20px;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<table border="3" cellpadding="4" cellspacing="4" >
+			<tr>
+				<td id="title">
+					<label style="text-align: right" for="ln"><b>Last Name</b></label>
+				</td>
+				<td><input type="text" id="ln" name="LastName" placeholder="nakov"></td>
+			</tr>
+			<tr>
+					<td id="title">
+					<label for="fn"><b>First Name</b></label>
+				</td>
+				<td><input type="text" id="fn" name="First Name" placeholder="Svetlin"></td>
+			</tr>
+			<tr>
+					<td id="title">
+					<label for="addre"><b>Address</b></label>
+				</td>
+				<td><textarea id="addre" name="address" placeholder="17 hristo botev str floor ,3.apt.12"></textarea></td>
+			</tr>
+			<tr>
+					<td id="title">
+					<label for="ct"><b>City</b></label>
+				</td>
+				<td colspan="1">
+					<table>
+						<tr>
+							<td>
+								<input id="ct" type="text" width="100" name="city" placeholder="kaspichan " style="width: 100px" >
+							</td>
+							<td>
+								<label for="sta"><b>State</b></label>
+							</td>
+							<td>
+								<input id="sta" type="text" name="city" placeholder="" style="width: 50px">
+							</td>
+						</tr>
+						
+					</table>
+				</td>
+			</tr>
+			<tr>
+					<td id="title">
+					<label for="code">
+						<b>Zip/Postal Code</b>
+					</label>
+				</td>
+				<td>
+					<input id="code" type="text" name="ZipPostal" placeholder="9325">
+				</td>
+			</tr>
+			<tr>
+					<td id="title">
+					<label for="cotry"><b>Country</b></label>
+				</td>
+				<td>
+					<select id="cotry" name="Country">
+						<option value="England">England</option>
+						<option value="USA">USA</option>
+						<option value="VietNam">VietNam</option>
+						<option value="China">China</option>
+						<option value="Russia">Russia</option>
+						<option value="Canada">Canada</option>
+						<option value="Brazil">Brazil</option>
+						<option value="Argentina">Argentina</option>
+						<option value="Germany">Germany</option>
+						<option value="Italy">Italy</option>
+					</select>
+
+				</td>
+			</tr>
+			<tr>
+					<td id="title">
+					<label><b>Phone(country code,area code,number)</b></label>
+				</td>
+				<td >
+					<input style="width:60px;" type="text" name="countryCode" placeholder="359">
+					<input style="width:60px;" type="text" name="areaCode" placeholder="88">
+					<input style="width:60px;" type="text" name="number" placeholder="8334343">
+				</td>
+			</tr>
+			<tr>
+					<td id="title">
+					<label for="Email"><b>E-mail</b></label>
+				</td>
+				<td>
+					<input id="Email" type="text" name="email" placeholder="nakov@kaspichan.org">
+				</td>
+			</tr>
+			<tr>
+					<td id="title">
+					<label for="Birthday"><b>Birthday</b></label>
+				</td>
+				<td>
+					<label for="month"><b>Month</b></label>
+					<input id="month" style="width:15px;" type="text" name="month" placeholder="06">
+					<label for="day"><b>Day</b></label>
+					<input id="day" style="width:15px;" type="text" name="day" placeholder="14">
+					<label for="year"><b>Year</b></label>
+					<input id="year" style="width:30px;" type="text" name="year" placeholder="1980">
+				</td>
+			</tr>
+			<tr>
+				<td id="title"><b>Gender</b></td>
+				<td>
+					<select name="gender">
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+						<option value="Unknown">Unknown</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td id="title"><b>Starting Date</b></td>
+				<td>
+					<input type="radio" name="Date" value="Spring 2006">Spring 2006
+					<input type="radio" name="Date" value="Summer 2006">Summer 2006
+				</td>
+			</tr>
+			<tr>
+				<td id="title">
+					<label for="cmt"><b>Comments/Questions</b></slabel>
+				</td>
+				<td>
+					<textarea id="cmt" type="text" name="comments" placeholder="Please send me more information about the lodging" ></textarea>
+				</td>	
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align: center;">
+					<input type="submit" name="submietBtn" alt="Submit">
+					<input type="reset" name="resetBtn" value="Clear this form">	
+				</td>
+			</tr>
+		</table>
+	</form>	
+</body>
+</html>
