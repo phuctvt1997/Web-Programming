@@ -1,0 +1,44 @@
+h2 {
+    font-size: 40px;
+    color:  deeppink;
+}
+body{
+    background-color: greys
+}
+
+.Title{
+    font-size: 20px;
+    color: darkblue;
+    font-weight: bolder
+}
+input[type=text]{
+    width: 500px;
+}
+textarea{
+    width: 500px;
+}
+div:first-child{
+    color:blue;
+}
+div:last-child{
+    color: pink;
+}
+div:nth-child(2){
+    color:yellow;
+}
+div:nth-child(3){
+    color:red; 
+}
+input[name="Email"]{
+    height: 50px;
+}
+input[style="submit"]:hover{
+    background-color: blue;
+    color: blue;
+}
+.btn:hover{
+    background-color: pink;
+    color: #383;
+}
+
+
