@@ -1,0 +1,14 @@
+.flag{
+    width: 20px;height: auto;
+}
+thead > tr{
+    background-color: springgreen;
+    text-align: left;
+}
+tbody > :nth-child(even){
+   background-color: wheat;
+}
+
+tbody > :nth-child(odd){
+    background-color: white;
+}

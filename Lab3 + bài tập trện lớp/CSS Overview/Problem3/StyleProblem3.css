@@ -1,0 +1,33 @@
+
+.Title{
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    font-family: "Times New Roman", Times, serif;
+}
+body{
+    background-color: cornflowerblue;
+}
+a.current{
+    background-color: dimgrey;
+}
+.White{
+    color: white;
+    font-size: 30px;
+}
+
+.nav > ul > li > a{
+    text-decoration: none;
+    color: white;
+}
+.nav > ul:nth-child(1) > li:nth-child(4) > a:nth-child(1){
+    text-decoration: underline;
+}
+footer > p >a{
+    color: black;
+    text-decoration: none;
+
+}
+ul{
+    list-style-type: none;
+}
