@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Borders</title>
+    <style type="text/css">
+        .NoneBorders {
+            border-style: none;
+            border-width: 1px;
+            border-color: blue;
+        }
+
+        .hiddenBorders {
+            border-style: hidden;
+            border-width: 3px;
+            border-color: red;
+        }
+
+        .dottedBorders {
+            border-style: dotted;
+            border-width: 4px;
+            border-color: blue;
+            border-radius: 50%;
+            /* border-top-left-radius: 5px;
+            border-top-right-radius: 300px;
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 20%; */
+            /* width: 50px; height: 50; */
+            border-radius: 5px 300px 50% 20%;
+
+        }
+
+        .dashedBorders {
+            border-style: dashed;
+            border-width: 3px;
+            border-color: green;
+            background-image: url("https://i.ytimg.com/vi/MlvAAOT5iAo/maxresdefault.jpg");
+            width: auto; height: 700px;
+            background-repeat: no-repeat;
+        }
+
+        .solidBorders {
+            border-style: solid;
+            border-width: 3px;
+            border-color: pink;
+            opacity: 0.5;
+        }
+
+        .doubleBorders {
+            border-style: double;
+            border-width: 3px;
+            border-color: royalblue;
+        }
+
+        .grooveBorders {
+            border: groove 6px teal;
+        }
+
+        .ridgeBorders {
+            border: ridge 4px tomato
+        }
+
+        .insetBorders {
+            border: inset 5px yellow;
+            box-shadow: 10px 10px 5px #888;
+        }
+
+        .outsetBorders {
+            border: outset 2px purple;
+            box-shadow: 10px 10px 5px #888;
+        }
+
+        .DEMO {
+            border-top: dashed 1px red;
+            border-right: double 2px green;
+            border-bottom: groove 3px blue;
+            border-left: solid 4px black;
+        }
+
+    </style>
+</head>
+
+<body>
+    <p class="NoneBorders">None Border</p>
+    <p class="hiddenBorders">hidden Border</p>
+    <p class="dottedBorders">dotted Border</p>
+    <p class="dashedBorders">dashed Border</p>
+    <p class="solidBorders">solid Border</p>
+    <p class="doubleBorders">double Border</p>
+    <p class="grooveBorders">groove Border</p>
+    <p class="ridgeBorders">ridge Border</p>
+    <p class="insetBorders">inset Border</p>
+    <p class="outsetBorders">outset Border</p>
+    <P class="DEMO" id="PhucDepTrai">DEMO</P>
+    </table>
+</body>
+
+</html>
