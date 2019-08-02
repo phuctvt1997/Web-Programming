@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script type="text/javascript" style="">
+        //tính tổng số lẻ từ 1-100
+        let tong = 0;
+        let chay = 1;
+        while (chay <= 100) {
+            if (chay % 2 != 0) {
+                tong += chay;
+            }
+            chay++;
+        }
+        document.writeln(tong);
+        alert("Tổng số lẻ từ 1->100: " + tong);
+        console.log('tong la:' + tong);
+    </Script> -->
+
+    <script type="text/javascript" style="">
+        function fullname(nameArray) {
+            for (key in nameArray) {
+                document.writeln(nameArray[key] + '<br>');
+            }
+        }
+        function findName(nameArray,NeededName){
+           var temp= nameArray.indexOf(NeededName);
+           if(temp!=0){
+               document.writeln("YES");
+           }else document.writeln("NO");
+        }
+
+       
+
+        var nameArray = ['Phuc', 'Leona', 'yasuo', 'riven', 'vayne']
+        for (key in nameArray) {
+            document.writeln(nameArray[key] + '<br>');
+        }
+        document.writeln("<br/><b>Sau sửa:</b> <br>");
+        nameArray[2] = ['Phuc Dep trai']
+        for (let key in nameArray) {
+            document.writeln(nameArray[key] + '<br>');
+        }
+        document.writeln("<br/><b>Thêm Anh Phúc Đẹp trai:</b> <br>")
+        nameArray.push("Trần Vĩnh Thiện Phúc");
+
+        for (let key in nameArray) {
+            document.writeln(nameArray[key] + '<br>');
+        }
+        document.writeln("<br/><b>Đảo ngược mảng:</b> <br>")
+        var reversed = nameArray.reverse();
+        for (let key in reversed) {
+            document.writeln(nameArray[key] + '<br>');
+        }
+        document.writeln("<br/><b>Hàm index of</b> <br>")
+        document.writeln(nameArray.indexOf("Trần Vĩnh Thiện Phúc") + '<br>');
+
+        document.writeln("<br/><b>Gọi hàm</b> <br>")
+        document.writeln(fullname(nameArray));
+
+
+        document.writeln("<br/><b>find Name:</b> <br>")
+        var NeededName="Phuc"
+        findName(nameArray,NeededName);
+
+
+
+    </Script>
+
+
+</body>
+
+</html>
