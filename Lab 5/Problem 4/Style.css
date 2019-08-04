@@ -1,0 +1,81 @@
+.container {
+    background-color: white;
+}
+
+ul>li {
+    text-decoration: none;
+    list-style-type: none;
+    margin-right: 50px;
+    margin: 0px;
+}
+ul {
+    padding-top: 20px;
+    ;
+    padding-left: 0px;
+}
+
+h6 {
+    margin-top: 10px;
+    font-weight: bold;
+    color: red;
+}
+
+.col-2 {
+    background-color: whitesmoke;
+    border-radius: 1px solid grey;
+}
+
+button {
+    padding: 0px, 50px;
+    /* width: 100%; */
+}
+
+h5 {
+    background-color: gray;
+    color: white;
+}
+
+.col-8 .row .col-2 {
+    background-color: white;
+}
+
+.col-8 .row .col-10 p {
+    font-weight: bold;
+}
+
+.col-8 .row .col-10 a {
+    font-weight: bold;
+    color: red;
+}
+
+.main-content h4 {
+    background-color: gray;
+    color: white;
+}
+.main-content a {
+    font-weight: bold;
+    color: red;
+}
+hr{
+    background-color: slategrey;
+    border: 0.5;
+}
+.input-group-append{
+    background-color: silver;
+}
+#final-col   a{
+    font-size: 14px;
+    text-align: center;
+}
+.col-2 table a {
+    text-align: center;
+}
+table {
+    text-align: center;
+}
+#final-col > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > button:nth-child(1) {
+    width: 100%;
+}
+table a{
+    color: red;
+}

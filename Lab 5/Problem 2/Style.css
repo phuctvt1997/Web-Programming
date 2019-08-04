@@ -1,0 +1,39 @@
+.wrap {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    background-color: #eee;
+    padding: 10px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.group {
+    border: 2px solid #888;
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+
+}
+
+.group img {
+    border: 2px solid gray;
+
+}
+
+button {
+    text-align: right;
+    color: white;
+    padding: 0px 10px 0px 20px;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(240, 10, 10, 1) 63%);
+
+}
+
+.buttons {
+    text-align: right;
+}
