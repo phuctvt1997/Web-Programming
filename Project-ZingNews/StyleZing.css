@@ -424,19 +424,22 @@ h5 {
 .col-3 a:hover {
     color: rgba(30, 143, 255, 0.767);
 }
-.row .col-3 .row .col-7 img{
+
+.row .col-3 .row .col-7 img {
     display: inline-block;
     height: 100px;
     width: 100%;
 }
-.row .col-3 .row .col-5 a{
+
+.row .col-3 .row .col-5 a {
     display: inline-block;
     font-size: 13px;
     color: #333;
     padding: 0px;
     text-align: left;
 }
-.row .col-3 .row .col-5 a:hover{
+
+.row .col-3 .row .col-5 a:hover {
     color: rgba(30, 143, 255, 0.767);
 }
 
@@ -562,6 +565,7 @@ h5 {
     padding: 0px;
 
 }
+
 #back3 {
     background-image: url(https://e0.365dm.com/19/07/768x432/skysports-ronaldo-cristiano_4731685.jpg?20190730120844);
     width: 100px;
@@ -570,7 +574,8 @@ h5 {
     padding: 0px;
 
 }
-#back3 a{
+
+#back3 a {
     text-align: left;
     color: wheat;
 }
@@ -657,24 +662,104 @@ hr {
     display: inline-block;
     position: relative;
     text-transform: uppercase;
-    padding-left: 12px; 
+    padding-left: 12px;
 }
-#category-title img{
+
+#category-title img {
     width: 258.5px;
     height: 172.333px;
     padding-top: 10px;
 }
-#category-title h5 a{
+
+#category-title h5 a {
     text-decoration: none;
     text-align: left;
     font-size: 15px;
 }
-#category-title .row .col-6 img{
+
+#category-title .row .col-6 img {
     width: 100%;
     height: 70px;
 }
-#category-title .row .col-6 a{
+
+#category-title .row .col-6 a {
     font-size: 13px;
     padding-top: 10px;
     color: #333;
+}
+
+
+#section-Sport::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    right: -30px;
+    bottom: -30px;
+    background: rgb(107, 86, 228);
+    padding-top: 20px;
+}
+
+#section-Sport .col-6 .row .col-6 a {
+    color: black;
+}
+
+#section-Sport .col-6 .row .col-6 img {
+    width: 100%;
+    height: 70%;
+}
+
+title h3::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    left: 5px;
+    top: 2px;
+    bottom: 2px;
+    -webkit-transform: skew(-20deg);
+    -khtml-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -ms-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+    transform: skew(-20deg);
+    background-color: #dd3333;
+
+}
+
+#section-video a {
+    color: black;
+    text-align: left;
+    font-weight: bold;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.col-3 .row .col-6 a {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+    /* color: black; */
+}
+
+.col-3 .row .col-6 img {
+    width: 100%;
+    height: 100%;
+}
+
+.fas {
+    margin-bottom: 13px;
+}
+
+.feature {
+    width: 100%;
+    height: 410px;
+    padding: 0 0 0 10px;
+    border-right: 1px solid #ccc;
+    vertical-align: top;
+    overflow: auto;
+    max-width: 1000px;
 }
