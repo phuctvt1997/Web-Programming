@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style tyle="text/css">
+        table {
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+    <title>Problem 5</title>
+    
+</head>
+
+<body>
+    <table border="1" cellpadding="15px;">
+        <tr>
+            <td>str</td>
+            <td>parseInt(str)</td>
+            <td>parseFloat(str)</td>
+            <td>Number(str)</td>
+            <td>+str</td>
+            <td>str|0</td>
+        </tr>
+        <tr>
+            <td>'1234'</td>
+            <td>
+                <span id="pi_1"></span>
+            </td>
+            <td>
+                <span id="pf_1"></span>
+            </td>
+            <td>
+                <span id="number_1"></span>
+            </td>
+            <td>
+                <span id="plus_1"></span>
+            </td>
+            <td>
+                <span id="divide_1"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>'1238abc'</td>
+            <td>
+                <span id="pi_2"></span>
+            </td>
+            <td>
+                <span id="pf_2"></span>
+            </td>
+            <td>
+                <span id="number_2"></span>
+            </td>
+            <td>
+                <span id="plus_2"></span>
+            </td>
+            <td>
+                <span id="divide_2"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>'0.15'</td>
+            <td>
+                <span id="pi_3"></span>
+            </td>
+            <td>
+                <span id="pf_3"></span>
+            </td>
+            <td>
+                <span id="number_3"></span>
+            </td>
+            <td>
+                <span id="plus_3"></span>
+            </td>
+            <td>
+                <span id="divide_3"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>'3.14ivan'</td>
+            <td>
+                <span id="pi_4"></span>
+            </td>
+            <td>
+                <span id="pf_4"></span>
+            </td>
+            <td>
+                <span id="number_4"></span>
+            </td>
+            <td>
+                <span id="plus_4"></span>
+            </td>
+            <td>
+                <span id="divide_4"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>'Infinity'</td>
+            <td>
+                <span id="pi_5"></span>
+            </td>
+            <td>
+                <span id="pf_5"></span>
+            </td>
+            <td>
+                <span id="number_5"></span>
+            </td>
+            <td>
+                <span id="plus_5"></span>
+            </td>
+            <td>
+                <span id="divide_5"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>'99999999999999999999' 	</td>
+            <td>
+                <span id="pi_6"></span>
+            </td>
+            <td>
+                <span id="pf_6"></span>
+            </td>
+            <td>
+                <span id="number_6"></span>
+            </td>
+            <td>
+                <span id="plus_6"></span>
+            </td>
+            <td>
+                <span id="divide_6"></span>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        document.getElementById("pi_1").innerHTML = parseInt('1234');
+        document.getElementById("pf_1").innerHTML = parseFloat('1234');
+        document.getElementById("number_1").innerHTML = Number('1234')
+        document.getElementById("plus_1").innerHTML = +('1234');
+        document.getElementById("divide_1").innerHTML = ('1234') | 0;
+
+        document.getElementById("pi_2").innerHTML = parseInt('1238abc');
+        document.getElementById("pf_2").innerHTML = parseFloat('1238abc');
+        document.getElementById("number_2").innerHTML = Number('1238abc')
+        document.getElementById("plus_2").innerHTML = +('1238abc');
+        document.getElementById("divide_2").innerHTML = ('1238abc') | 0;
+
+        document.getElementById("pi_3").innerHTML = parseInt('0.15');
+        document.getElementById("pf_3").innerHTML = parseFloat('0.15');
+        document.getElementById("number_3").innerHTML = Number('0.15')
+        document.getElementById("plus_3").innerHTML = +('0.15');
+        document.getElementById("divide_3").innerHTML = ('0.15') | 0;
+
+        document.getElementById("pi_4").innerHTML = parseInt('3.14ivan');
+        document.getElementById("pf_4").innerHTML = parseFloat('3.14ivan');
+        document.getElementById("number_4").innerHTML = Number('3.14ivan')
+        document.getElementById("plus_4").innerHTML = +('3.14ivan');
+        document.getElementById("divide_4").innerHTML = ('3.14ivan') | 0;
+
+        document.getElementById("pi_5").innerHTML = parseInt('Infinity');
+        document.getElementById("pf_5").innerHTML = parseFloat('Infinity');
+        document.getElementById("number_5").innerHTML = Number('Infinity')
+        document.getElementById("plus_5").innerHTML = +('Infinity');
+        document.getElementById("divide_5").innerHTML = ('Infinity') | 0;
+
+        document.getElementById("pi_6").innerHTML = parseInt('99999999999999999999' );
+        document.getElementById("pf_6").innerHTML = parseFloat('99999999999999999999' );
+        document.getElementById("number_6").innerHTML = Number('99999999999999999999' )
+        document.getElementById("plus_6").innerHTML = +('99999999999999999999' );
+        document.getElementById("divide_6").innerHTML = ('99999999999999999999' ) | 0;
+    </script>
+</body>
+
+</html>

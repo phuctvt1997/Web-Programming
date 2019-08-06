@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Problem 7</title>
+</head>
+
+<body>
+    <script type="text/javascript" style="">
+        function PrimeCheck(_numberneedCheck) {
+            var flag = true;
+            if (_numberneedCheck <= 2) {
+                flag = false;
+            } else {
+                for (var i = 2; i < _numberneedCheck - 1; i++) {
+                    if (_numberneedCheck % i == 0) {
+                        flag = false;
+                        break;
+                    }
+                }
+            }
+            if (flag == true) {
+                return document.writeln(_numberneedCheck + " là số nguyên tố <br/>");
+            } else {
+                return document.writeln(_numberneedCheck + " không phải là số nguyên tố <br/>");
+            }
+        }
+        PrimeCheck(11);
+    </script>
+</body>
+
+</html>

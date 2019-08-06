@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Problem 2</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function calculate(a, b, c) {
+            var max = findmax(a,b,c);
+            var min = findmin(a,b,c);
+            var sum = a + b + c;
+            var average = (a + b + c) / 3;
+            return document.writeln("max" + " " + max + "<br>" + "min" + " " + min +
+                "<br>" + "sum" + " " + sum + "<br>" + " " + "average" + " " + (average));
+        }
+        function findmax(a, b, c) {
+            var max = 0;
+            if (a > b && a > c) {
+                max = a;
+            }
+            if (b > a && b > c) {
+                max = b;
+            }
+            if (c > a && c > b) {
+                max = c;
+            }
+            return max;
+        }
+        function findmin(a, b, c) {
+            var min = 0;
+            if (a < b && a < c) {
+                min = a;
+            }
+            if (b < a && b < c) {
+                min = b;
+            }
+            if (c < a && c < b) {
+                min = c;
+            }
+            return min;
+        }
+        calculate(2, -1, 4);
+    </script>
+</body>
+
+</html>

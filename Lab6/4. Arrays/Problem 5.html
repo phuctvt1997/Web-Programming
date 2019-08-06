@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Problem 5</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function SelectionSort(numberList) {
+            var temp = 0;
+            for (var i = 0; i < numberList.length; i++) {
+                for (var j = i; j < numberList.length; j++) {
+                    if (numberList[i] >= numberList[j]) {
+                        temp = numberList[j];
+                        numberList[j] = numberList[i];
+                        numberList[i] = temp;
+                    }
+                }
+            }
+            for(var i=0;i<numberList.length;i++){
+                document.writeln(numberList[i]+"<br>");
+            }
+        }
+        SelectionSort(['10', '36', '10', '1', '34', '28', '38', '31', '27', '30', '20']);
+    </script>
+</body>
+
+</html>

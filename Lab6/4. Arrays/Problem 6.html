@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Problem 6</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function FrequentNumber(numberList) {
+            var temp = 0;
+            var count = 0;
+            var index=0;
+            for (var i = 0; i < numberList.length; i++) {
+                for (var j = i; j < numberList.length; j++) {
+                    if (numberList[i] == numberList[j]) {
+                        temp++;
+                    }
+                }
+                if (temp >= count) {
+                    count = temp;
+                    index=numberList[i];
+                }
+                temp=0;
+            }
+            return document.writeln(index +" "+(count));
+        }
+        FrequentNumber(['13', '4', '1', '1', '4', '2', '3', '4', '4', '1', '2', '4', '9', '3']);
+    </script>
+</body>
+
+</html>
