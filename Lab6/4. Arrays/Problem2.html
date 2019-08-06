@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Problem 2</title>
 </head>
+
 <body>
     <script type="text/javascript">
-        function comparison2ArrayChar(letter1,letter2){
-        
-            if(letter1 > letter2){
-                return document.writeln(">");
-            }else if(letter1 < letter2){
-                return document.writeln("<");
-            }else {
-                return document.writeln("=");
+        function comparison2ArrayChar(letter1, letter2) {
+            var out1 = letter1.split('');
+            var out2 = letter2.split('')
+            var len = 0;
+            if (out1.length > out2.length) {
+                len = out2.length;
+            } else len = out1.length;
+            for (let i = 0; i < len; i++) {
+                if (out1[i] < out2[i]) {
+                    return document.writeln("<");
+                }
+                if (out1[i] > out2[i]) {
+                    return document.writeln(">");
+                }
             }
+            if (out1.length > out2.length) {
+                return document.writeln("<");
+            } else if (out1.length < out2.length) {
+                return document.writeln(">");
+            } else document.writeln("=");
         }
-        comparison2ArrayChar("Hello","Halo");
+        comparison2ArrayChar("Hello", "Halo");
     </script>
 </body>
+
 </html>
