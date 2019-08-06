@@ -763,3 +763,37 @@ iframe {
     overflow: auto;
     max-width: 1000px;
 }
+
+footer .logo img {
+    width: 100px;
+    margin-left: 500px;
+
+}
+
+.copyright {
+    text-align: center;
+}
+
+footer {
+    height: 200px;
+}
+
+.final-ads {
+    text-align: center;
+    float: left;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.final-ads li {
+    display: inline;
+}
+
+.final-ads li a {
+    margin-left: 50px;
+    color:black;
+}
+footer .row {
+    margin-left: 250px;
+}
