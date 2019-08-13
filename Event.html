@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Event</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Danh Sách Sinh Viên</h1>
+        <div class="Group-SV" onload="LoadDuLieu()">
+            <div class="row">
+                <div class="col-1"> STT </div>
+                <div class="col-6"> Họ và tên </div>
+                <div class="col-5">MSSV</div>
+            </div>
+            <div class="row">
+                <div class="col-1">1 </div>
+                <div class="col-6"> Nguyễn A </div>
+                <div class="col-5"> 22541</div>
+            </div>
+            <div class="row">
+                <div class="col-1">2 </div>
+                <div class="col-6">Nguyễn B</div>
+                <div class="col-5">15312 </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        function LoadDuLieu() {
+            var _DSSV = [{
+                    "HoTen": "Nguyễn A",
+                    "MSSV": "22541"
+                },
+                {
+                    "HoTen": "Nguyễn A2",
+                    "MSSV": "15312"
+                },
+
+            ]
+            var _str = "";
+            var _str = document.getElementById("Group-SV").innerHTML;
+            for (let _index in _DSSV) {
+                let STT = +_index + 1;
+                _str = '<div class="row"><div class="col-1">' + STT + ' </div> <div class="col-6"> ' + _DSSV[_index]
+                    .HoTen + '</div><div class="col-5">' + _DSSV[_index].MSSV + ' </div></div>'
+                $("#sGroup-SV").append(_str);
+            }
+        }
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
