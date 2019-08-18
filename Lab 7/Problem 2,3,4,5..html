@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>JS Events</title>
+    <style type="text/css">
+        .wrap {
+            max-width: 1170px;
+            width: 100%;
+            margin: 0px auto;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body onload="LoadDuLieu();" class="BackGround">
+    <div class="wrap">
+        <div class="Dsl">
+            <ul>
+                <li onclick="ShowDataByIDClass('Lop1')">Lớp 1</li>
+                <li onclick="ShowDataByIDClass('Lop2')">Lớp 2</li>
+            </ul>
+        </div>
+        <h1>DANH SÁCH SINH VIÊN</h1>
+        <div class="row" id="Group-New">
+
+            <div class="col-3">
+                <input type="text" class="form-control" id="HoTen" placeholder="Enter Họ và tên">
+            </div>
+            <div class="col-3">
+                <input type="text" class="form-control" id="MSSV" placeholder="Enter MSSV">
+            </div>
+            <div class="col-3">
+                <select name="" id="lop">
+                    <option value="Lop1">Lớp 1</option>
+                    <option value="Lop2">Lớp 2</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-primary" id="New">Thêm mới</button>
+            </div>
+        </div>
+
+        <div class="Group-SV" id="Group-SV">
+            <div class="row">
+                <div class="col-1 border border-dark">STT</div>
+                <div class="col-4 border border-dark">Họ và tên</div>
+                <div class="col-4 border border-dark">MSSV</div>
+                <div class="col-3 border border-dark">Chức năng</div>
+            </div>
+
+
+            <div class="List-Body">
+
+            </div>
+
+            <!-- <div class="row">
+                    <div class="col-1">1</div>
+                    <div class="col-4">Nguyễn A</div>
+                    <div class="col-4">22541</div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-warning Edit" onclick="Edit(this)">Edit</button>
+                        <button type="button" class="btn btn-danger Del" onclick="Del(this)">Del</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1">2</div>
+                    <div class="col-4">Nguyễn AV</div>
+                    <div class="col-4">2254155</div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-warning Edit">Edit</button>
+                        <button type="button" class="btn btn-danger Del" onclick="Del(this)">Del</button>
+                    </div>
+                </div>  -->
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        var DSSV = [{
+                "HoTen": "Nguyễn Văn A",
+                "MSSV": "2230",
+                "Email": "a@student.com",
+                "ClassCode": "Lop1",
+            },
+            {
+                "HoTen": "Đoàn Văn B",
+                "MSSV": "2227",
+                "Email": "b@student.com",
+                "ClassCode": "Lop2"
+            },
+            {
+                "HoTen": "Đỗ Thị C",
+                "MSSV": "2219",
+                "Email": "c@student.com",
+                "ClassCode": "Lop2"
+            },
+        ];
+        DSSV.sort(function (a, b) {
+            if (a.MSSV > b.MSSV) return 1;
+            if (a.MSSV < b.MSSV) return -1;
+            if (a.MSSV == b.MSSV) return 0;
+
+        });
+
+        function LoadDuLieu() {
+
+            ShowData();
+        }
+
+        function ShowData() {
+            $(".List-Body").html("");
+            for (let _index in DSSV) {
+                let _STT = +_index + 1;
+                let _str = `<div class="row">
+                    <div class="col-1">${_STT}</div>
+                    <div class="col-4">${DSSV[_index].HoTen}</div>
+                    <div class="col-4">${DSSV[_index].MSSV}</div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-warning Edit" onclick="Edit(${DSSV[_index].MSSV})">Edit</button>
+                        <button type="button" class="btn btn-danger Del" onclick="Del(${DSSV[_index].MSSV})">Del</button>
+                    </div>
+                </div>`;
+                $(".List-Body").append(_str);
+            }
+        }
+
+        //hiển thị danh sách sinh viên theo id lớp 
+        function ShowDataByIDClass(_malop) {
+            $(".List-Body").html("");
+            var _STT = 1;
+            for (let _index in DSSV) {
+
+                if (DSSV[_index].ClassCode == _malop) {
+                    let _str = `<div class="row">
+                    <div class="col-1">${_STT}</div>
+                    <div class="col-4">${DSSV[_index].HoTen}</div>
+                    <div class="col-4">${DSSV[_index].MSSV}</div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-warning Edit" onclick="Edit(${DSSV[_index].MSSV})">Edit</button>
+                        <button type="button" class="btn btn-danger Del" onclick="Del(${DSSV[_index].MSSV})">Del</button>
+                    </div>
+                </div>`;
+                    $(".List-Body").append(_str);
+                    _STT++;
+                }
+
+            }
+        }
+
+        function Del(_mssv) {
+            var _confirm = confirm("Are you sure?");
+            if (_confirm) {
+                for (let _index in DSSV) {
+                    if (DSSV[_index].MSSV == _mssv) {
+                        DSSV.splice(_index, 1)
+                        ShowData();
+                        break;
+                    }
+                }
+            }
+            ShowData();
+        }
+
+        $("#New").click(function () {
+            var _HoTen = $("#HoTen").val();
+            var _MSSV = $("#MSSV").val();
+            var _lop = $("#lop").val();
+            DSSV.push({
+                "HoTen": _HoTen,
+                "MSSV": _MSSV,
+                "Email": "",
+                "ClassCode": _lop
+            });
+            ShowData();
+        });
+       
+
+        $('.BackGround').css('background-color', 'pink');
+
+
+ 
+    </script>
+
+
+
+</body>
+
+</html>

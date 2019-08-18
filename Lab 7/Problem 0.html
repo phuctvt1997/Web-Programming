@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>Problem 0</title>
+</head>
+
+<body onload="LoadDataUsingAjax()">
+    <div class="container">
+
+        <h1>Danh Sách Sinh Viên</h1>
+        <div id="Group-SV">
+            <div class="row" id="Group-news">
+                <div class="col-1"> STT </div>
+                <div class="col-4"> Họ và tên </div>
+                <div class="col-4">MSSV</div>
+                <div class="col-3">Chức năng</div>
+            </div>
+
+        </div>
+        <br>
+        <div>
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">FullName</label>
+                    <input type="FullName" class="form-control" id="FullName">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">MSSV</label>
+                    <input id="MSSV" class="form-control" id="MSSV">
+                </div>
+                <button type="button" class="btn btn-primary" id="createSV">Create</button>
+
+
+            </form>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        function LoadDuLieu() {
+            var _DSSV = [{
+                    "HoTen": "Trần Vĩnh Thiện Phúc",
+                    "MSSV": "1531200037"
+                },
+                {
+                    "HoTen": "Bánh mỳ bơ",
+                    "MSSV": "1531200036"
+                },
+            ];
+            for (let _index in _DSSV) {
+                let STT = +_index + 1;
+                let _str = '<div class="row"><div class="col-1">' + STT + ' </div> <div class="col-6"> ' + _DSSV[_index]
+                    .HoTen + '</div><div class="col-5">' + _DSSV[_index].MSSV + ' </div></div>';
+                $("#Group-SV").append(_str);
+            }
+        }
+
+        function LoadDataUsingAjax() {
+            $.post(
+                "http://45.32.20.144", {
+                    "DanhSach": "SV"
+                },
+                function (_DSSV) {
+
+                    for (let _index in _DSSV) {
+                        let STT = +_index + 1;
+                        let _str = '<div class="row"><div class="col-1">' + STT + ' </div> <div class="col-4"> ' +
+                            _DSSV[_index].HoTen + '</div><div class="col-4">' + _DSSV[_index].MSSV +
+                            ' </div> <div class="col-3"><button type="button" class="btn btn-warning" id="EditSV" onclick="Edit(this)">EditSV</button> <button type="button" class="btn btn-danger" id="DeleteSV" onclick="Del(this)">DeleteSV</button></div></div>';
+                        $("#Group-SV").append(_str);
+
+                    }
+                },
+                "json"
+            );
+
+        }
+
+        $("#createSV").click(function () {
+            var _hoTen = $("#FullName").val();
+            var _mssv = $("#MSSV").val();
+            if($(this).attr())
+            if(_hoTen.length==0 || _mssv.length==0){
+                alert("Something went wrong");
+            }else {
+                let _str = '<div class="row"><div class="col-1"> </div> <div class="col-4"> ' +
+                _hoTen + '</div><div class="col-4">' + _mssv +
+                ' </div> <div class="col-3"><button type="button" class="btn btn-warning" id="EditSV" onclick="Edit(this)" >EditSV</button> <button type="button" class="btn btn-danger" id="DeleteSV" onclick="Del(this)">DeleteSV</button></div></div>';
+                $("#Group-SV").append(_str);
+            }
+            
+            
+            // $("#Group-news").after(_str);  //Thêm từ trên đầu
+        });
+
+        function Del(e) {
+            var _confirm = confirm("ARE YOU SURE");
+            if (_confirm) {
+                $(e).parents('.row').remove();
+            }
+        }
+
+        function Edit(e){
+            $(e).parents(".row").addClass("Editing");
+             _node =$(e).parents(".row").find("col-4").first();
+            var _hoTen =_node.html();
+            var _mssv =_node.next().html();
+
+            //gán lên input
+            $("#FullName").change().val(_hoTen);
+            $("#MSSV").change().val(_mssv);
+            $ ("#createSV").html("Update"); 
+            //gán trạng thái
+            $ ("#createSV").attr("status","Update"); 
+           
+
+        }
+    </script>
+
+</body>
+
+</html>
