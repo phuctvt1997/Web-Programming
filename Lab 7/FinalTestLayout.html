@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <Style type="text/css">
+        .row .col-5 {
+            /* border: 1px solid red; */
+            width: 1180px;
+        }
+       header , footer {
+           text-align: center;
+       }
+       li{
+           text-decoration: underline;
+       }
+    </Style>
+    <title>Practise Test</title>
+</head>
+
+<body onload="LoadDuLieu()" class="BackGround">
+    <header>
+        <div class="container-fluid">
+            <h1>Danh Sách Sinh Viên</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-5">
+                    <aside>
+                        <div class="card" style="width: 100%;">
+                            <div class="card-header">
+                                Danh Sách Lớp
+                            </div>
+                            <div>
+                                <ul>
+                                    <li onclick="ShowDataByIDClass('Lop1')">Lớp 1</li>
+                                    <li onclick="ShowDataByIDClass('Lop2')">Lớp 2</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+                <div class="col-7">
+                    <div>
+                        <section>
+                            <div class="card" style="width: 100%;">
+                                <div class="card-header">
+                                    Thêm Sinh Viên
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <input type="text" class="form-control" id="HoTen"
+                                                placeholder="Enter Họ và tên">
+                                        </div>
+                                        <div class="col-4">
+                                            <input type="text" class="form-control" id="MSSV" placeholder="Enter MSSV">
+                                        </div>
+                                        <div class="col-2">
+                                            <select class="custom-select" id="lop">
+                                                <option selected>Lớp</option>
+                                                <option value="Lop1">Lớp 1</option>
+                                                <option value="Lop2">Lớp 2</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-2">
+                                            <button type="button" class="btn btn-primary" id="New"
+                                                status="Thêm mới">Thêm mới</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="card" style="width: 100%;">
+                                <div class="card-header">
+                                    Danh Sách Sinh Viên
+                                </div>
+                                <div class="card-body">
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-1 ">STT</div>
+                                            <div class="col-3 ">Họ và tên</div>
+                                            <div class="col-3 ">MSSV</div>
+                                            <div class="col-2 ">Lớp</div>
+                                            <div class="col-3 ">Chức năng</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="List-Body">
+
+                                </div>
+                            </div>
+                    </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <h3>Footer</h3>
+    </footer>
+
+    <script type="text/javascript">
+        var DSSV = [{
+                "HoTen": "Nguyễn Văn A",
+                "MSSV": "2230",
+                "Email": "a@student.com",
+                "ClassCode": "Lop1",
+            },
+            {
+                "HoTen": "Đoàn Văn B",
+                "MSSV": "2227",
+                "Email": "b@student.com",
+                "ClassCode": "Lop2"
+            },
+            {
+                "HoTen": "Đỗ Thị C",
+                "MSSV": "2219",
+                "Email": "c@student.com",
+                "ClassCode": "Lop2"
+            },
+        ];
+        DSSV.sort(function (a, b) {
+            if (a.MSSV > b.MSSV) return 1;
+            if (a.MSSV < b.MSSV) return -1;
+            if (a.MSSV == b.MSSV) return 0;
+
+        });
+
+        function LoadDuLieu() {
+            addandUpdate();
+            ShowData();
+        }
+
+        function ShowData() {
+            $(".List-Body").html("");
+            for (let _index in DSSV) {
+                let _STT = +_index + 1;
+                let _str = `<div class="row">
+                    <div class="col-1">${_STT}</div>
+                    <div class="col-3">${DSSV[_index].HoTen}</div>
+                    <div class="col-3">${DSSV[_index].MSSV}</div>
+                    <div class="col-2">${DSSV[_index].ClassCode}</div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-warning Edit" onclick="Edit(${DSSV[_index].MSSV})">Edit</button>
+                        <button type="button" class="btn btn-danger Del" onclick="Del(${DSSV[_index].MSSV})">Del</button>
+                    </div>
+                </div>`;
+                $(".List-Body").append(_str);
+            }
+        }
+
+        //hiển thị danh sách sinh viên theo id lớp 
+        function ShowDataByIDClass(_malop) {
+            $(".List-Body").html("");
+            var _STT = 1;
+            for (let _index in DSSV) {
+                if (DSSV[_index].ClassCode == _malop) {
+                    let _str = `<div class="row">
+                    <div class="col-1">${_STT}</div>
+                    <div class="col-3">${DSSV[_index].HoTen}</div>
+                    <div class="col-3">${DSSV[_index].MSSV}</div>
+                    <div class="col-2">${DSSV[_index].ClassCode}</div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-warning Edit" onclick="Edit(${DSSV[_index].MSSV})">Edit</button>
+                        <button type="button" class="btn btn-danger Del" onclick="Del(${DSSV[_index].MSSV})">Del</button>
+                    </div>
+                </div>`;
+                    $(".List-Body").append(_str);
+                    _STT++;
+                }
+
+            }
+        }
+
+        function Del(_mssv) {
+            var _confirm = confirm("Are you sure?");
+            if (_confirm) {
+                for (let _index in DSSV) {
+                    if (DSSV[_index].MSSV == _mssv) {
+                        DSSV.splice(_index, 1)
+                        ShowData();
+                        break;
+                    }
+                }
+            }
+            ShowData();
+        }
+
+        function addandUpdate() {
+            $("#New").click(function () {
+                if ($("#New").attr("status") == "Thêm mới") {
+                    var _HoTen = $("#HoTen").val();
+                    var _MSSV = $("#MSSV").val();
+                    var _lop = $("#lop").val();
+                    DSSV.push({
+                        "HoTen": _HoTen,
+                        "MSSV": _MSSV,
+                        "Email": "",
+                        "ClassCode": _lop
+                    });
+                    ShowData();
+                };
+                if ($("#New").attr("status") == "Update") {
+                    let _hoTen = $("#HoTen").val();
+                    let _mssv = $("#MSSV").val();
+                    let _lop = $("#lop").val();
+                    let _newSV = {
+                        "HoTen": _hoTen,
+                        "MSSV": _mssv,
+                        "Email": "",
+                        "ClassCode": _lop
+                    };
+                    //Neu khong cho phep sua MSSV
+                    //Del(_mssv);
+                    //Neu cho phep sua MSSV
+                    Del(selectedEditObjectId);
+                    DSSV.push(_newSV);
+                    ShowData();
+                    $("#New").attr("status", "Thêm mới");
+                    $("#New").html("Thêm mới");
+                    $("#HoTen").val("");
+                    $("#MSSV").val("");
+                    //get the first option
+                    $("#lop").val($("#lop option:first").val());
+                };
+
+            });
+        }
+
+        let selectedEditObjectId;
+
+        function Edit(_mssv) {
+            $(_mssv).parents(".row").addClass("Editing");
+            _node = $(_mssv).parents(".row").find(".col-3").first();
+            for (let i in DSSV) {
+                if (DSSV[i].MSSV == _mssv) {
+                    $("#HoTen").val(DSSV[i].HoTen);
+                    $("#MSSV").val(DSSV[i].MSSV);
+                    $("#MaLop").val(DSSV[i].MaLop);
+                    selectedEditObjectId = DSSV[i].MSSV;
+                    break;
+                }
+            }
+            // Gán trạng thái
+            $("#New").html("Update");
+            $("#New").attr("status", "Update");
+            //Neu khong cho phep sua MSSV
+            // $("#MSSV").prop("disabled", true);
+            //Neu cho phep sua MSSV
+
+        }
+
+
+        $('.BackGround').css('background-color', 'pink');
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
