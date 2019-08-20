@@ -15,26 +15,41 @@
             /* border: 1px solid red; */
             width: 1180px;
         }
-       header , footer {
-           text-align: center;
-       }
-       li{
-           text-decoration: underline;
-       }
+
+        header,
+        footer {
+            text-align: center;
+        }
+
+        li {
+            text-decoration: underline;
+        }
+
+        .col-md-2 {
+            text-align: right;
+        }
+
+        .ChauConCho {
+            text-align: left;
+            padding-left: 107px
+        }
+        .PhucDepTrai{
+            padding-top : 0;
+            padding-bottom : 0;
+        }
+        .PhucDepTrai2{
+            padding-bottom: 0;
+        }
     </Style>
     <title>Practise Test</title>
 </head>
 
 <body onload="LoadDuLieu()" class="BackGround">
-    <header>
-        <div class="container-fluid">
-            <h1>Danh Sách Sinh Viên</h1>
-        </div>
-    </header>
+    <h1>Danh Sách Sinh Viên</h1>
     <main>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-5">
+                <div class="col-3">
                     <aside>
                         <div class="card" style="width: 100%;">
                             <div class="card-header">
@@ -44,19 +59,20 @@
                                 <ul>
                                     <li onclick="ShowDataByIDClass('Lop1')">Lớp 1</li>
                                     <li onclick="ShowDataByIDClass('Lop2')">Lớp 2</li>
+                                    <li onclick="ShowAllClass()">All</li>
                                 </ul>
                             </div>
                         </div>
                     </aside>
                 </div>
-                <div class="col-7">
+                <div class="col-9">
                     <div>
                         <section>
                             <div class="card" style="width: 100%;">
                                 <div class="card-header">
                                     Thêm Sinh Viên
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body " >
                                     <div class="row">
                                         <div class="col-4">
                                             <input type="text" class="form-control" id="HoTen"
@@ -84,15 +100,13 @@
                                 <div class="card-header">
                                     Danh Sách Sinh Viên
                                 </div>
-                                <div class="card-body">
-                                    <div>
-                                        <div class="row">
-                                            <div class="col-1 ">STT</div>
-                                            <div class="col-3 ">Họ và tên</div>
-                                            <div class="col-3 ">MSSV</div>
-                                            <div class="col-2 ">Lớp</div>
-                                            <div class="col-3 ">Chức năng</div>
-                                        </div>
+                                <div class="card-body PhucDepTrai2" >
+                                    <div class="row">
+                                        <div class="col-1 border border-dark">STT</div>
+                                        <div class="col-3 border border-dark">Họ và tên</div>
+                                        <div class="col-3 border border-dark">MSSV</div>
+                                        <div class="col-2 border border-dark">Lớp</div>
+                                        <div class="col-3 border border-dark">Chức năng</div>
                                     </div>
                                 </div>
                                 <div class="List-Body">
@@ -106,78 +120,110 @@
         </div>
     </main>
     <footer>
+
         <h3>Footer</h3>
     </footer>
 
     <script type="text/javascript">
-        var DSSV = [{
-                "HoTen": "Nguyễn Văn A",
-                "MSSV": "2230",
-                "Email": "a@student.com",
-                "ClassCode": "Lop1",
-            },
-            {
-                "HoTen": "Đoàn Văn B",
-                "MSSV": "2227",
-                "Email": "b@student.com",
-                "ClassCode": "Lop2"
-            },
-            {
-                "HoTen": "Đỗ Thị C",
-                "MSSV": "2219",
-                "Email": "c@student.com",
-                "ClassCode": "Lop2"
-            },
-        ];
-        DSSV.sort(function (a, b) {
-            if (a.MSSV > b.MSSV) return 1;
-            if (a.MSSV < b.MSSV) return -1;
-            if (a.MSSV == b.MSSV) return 0;
-
-        });
-
+        var DSSV = [];
+        //         "HoTen": "Nguyễn Văn A",
+        //         "MSSV": "2230",
+        //         "Email": "a@student.com",
+        //         "ClassCode": "Lop1",
+        //     },
+        //     {
+        //         "HoTen": "Đoàn Văn B",
+        //         "MSSV": "2227",
+        //         "Email": "b@student.com",
+        //         "ClassCode": "Lop2"
+        //     },
+        //     {
+        //         "HoTen": "Đỗ Thị C",
+        //         "MSSV": "2219",
+        //         "Email": "c@student.com",
+        //         "ClassCode": "Lop2"
+        //     },
+        // ];
+        // DSSV.sort(function (a, b) {
+        //     if (a.MSSV > b.MSSV) return 1;
+        //     if (a.MSSV < b.MSSV) return -1;
+        //     if (a.MSSV == b.MSSV) return 0;
+        // });
         function LoadDuLieu() {
+            $.post(
+                "http://45.32.20.144", {
+                    "DanhSach": "SV"
+                },
+                function (_dssv) {
+                    DSSV = _dssv;
+                    ShowData();
+                },
+                "json"
+            );
             addandUpdate();
-            ShowData();
         }
 
         function ShowData() {
             $(".List-Body").html("");
             for (let _index in DSSV) {
                 let _STT = +_index + 1;
-                let _str = `<div class="row">
-                    <div class="col-1">${_STT}</div>
-                    <div class="col-3">${DSSV[_index].HoTen}</div>
-                    <div class="col-3">${DSSV[_index].MSSV}</div>
-                    <div class="col-2">${DSSV[_index].ClassCode}</div>
-                    <div class="col-3">
+                let _str = `<div class="card-body PhucDepTrai">
+                <div class="row">
+                    <div class="col-1  border border-dark ">${_STT}</div>
+                    <div class="col-3  border border-dark ">${DSSV[_index].HoTen}</div>
+                    <div class="col-3  border border-dark ">${DSSV[_index].MSSV}</div>
+                    <div class="col-2  border border-dark ">${DSSV[_index].ClassCode}</div>
+                    <div class="col-3  border border-dark ">
                         <button type="button" class="btn btn-warning Edit" onclick="Edit(${DSSV[_index].MSSV})">Edit</button>
                         <button type="button" class="btn btn-danger Del" onclick="Del(${DSSV[_index].MSSV})">Del</button>
                     </div>
-                </div>`;
+                </div>
+            </div>`;
                 $(".List-Body").append(_str);
             }
         }
-
         //hiển thị danh sách sinh viên theo id lớp 
         function ShowDataByIDClass(_malop) {
             $(".List-Body").html("");
             var _STT = 1;
             for (let _index in DSSV) {
                 if (DSSV[_index].ClassCode == _malop) {
-                    let _str = `<div class="row">
-                    <div class="col-1">${_STT}</div>
-                    <div class="col-3">${DSSV[_index].HoTen}</div>
-                    <div class="col-3">${DSSV[_index].MSSV}</div>
-                    <div class="col-2">${DSSV[_index].ClassCode}</div>
-                    <div class="col-3">
+                    let _str = `<div class="card-body PhucDepTrai">
+                <div class="row">
+                    <div class="col-1 border border-dark">${_STT}</div>
+                    <div class="col-3 border border-dark">${DSSV[_index].HoTen}</div>
+                    <div class="col-3 border border-dark">${DSSV[_index].MSSV}</div>
+                    <div class="col-2 border border-dark">${DSSV[_index].ClassCode}</div>
+                    <div class="col-3 border border-dark">
                         <button type="button" class="btn btn-warning Edit" onclick="Edit(${DSSV[_index].MSSV})">Edit</button>
                         <button type="button" class="btn btn-danger Del" onclick="Del(${DSSV[_index].MSSV})">Del</button>
                     </div>
-                </div>`;
+                </div>
+            </div>`;
                     $(".List-Body").append(_str);
                     _STT++;
                 }
+            }
+        }
+
+        function ShowAllClass() {
+            $(".List-Body").html("");
+            var _STT = 1;
+            for (let _index in DSSV) {
+                let _str = `<div class="card-body PhucDepTrai">
+                <div class="row">
+                    <div class="col-1 border border-dark">${_STT}</div>
+                    <div class="col-3 border border-dark">${DSSV[_index].HoTen}</div>
+                    <div class="col-3 border border-dark">${DSSV[_index].MSSV}</div>
+                    <div class="col-2 border border-dark">${DSSV[_index].ClassCode}</div>
+                    <div class="col-3 border border-dark">
+                        <button type="button" class="btn btn-warning Edit" onclick="Edit(${DSSV[_index].MSSV})">Edit</button>
+                        <button type="button" class="btn btn-danger Del" onclick="Del(${DSSV[_index].MSSV})">Del</button>
+                    </div>
+                </div>
+            </div>`;
+                $(".List-Body").append(_str);
+                _STT++;
 
             }
         }
@@ -221,9 +267,9 @@
                         "ClassCode": _lop
                     };
                     //Neu khong cho phep sua MSSV
-                    //Del(_mssv);
+                    Del(_mssv);
                     //Neu cho phep sua MSSV
-                    Del(selectedEditObjectId);
+                    // Del(selectedEditObjectId);
                     DSSV.push(_newSV);
                     ShowData();
                     $("#New").attr("status", "Thêm mới");
@@ -233,10 +279,8 @@
                     //get the first option
                     $("#lop").val($("#lop option:first").val());
                 };
-
             });
         }
-
         let selectedEditObjectId;
 
         function Edit(_mssv) {
@@ -255,24 +299,21 @@
             $("#New").html("Update");
             $("#New").attr("status", "Update");
             //Neu khong cho phep sua MSSV
-            // $("#MSSV").prop("disabled", true);
+            $("#MSSV").prop("disabled", true);
             //Neu cho phep sua MSSV
-
         }
-
-
+        
         $('.BackGround').css('background-color', 'pink');
     </script>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 </body>
 
